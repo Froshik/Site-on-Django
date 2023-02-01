@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Обновление статьи{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Редактирование статьи</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.anonse }}<br>
+        {{ form.full_text }}<br>
+        {{ form.date }}<br>
+        <span>{{ msg }}</span>
+        <button class="btn btn-success" type="submit">Обновить</button>
+    </form>
+</div>
+{% endblock %}

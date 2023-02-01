@@ -1,11 +1,21 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
     <div class="features">
-        <h1>Главная страница</h1>
+        <h1>{{ title }}</h1>
+        {% filter upper %}
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora vero, vel est provident dolor ducimus sapiente porro necessitatibus totam accusamus cupiditate aperiam aliquid, non nisi, repellat magni! Modi, itaque quis?</p>
+        {% endfilter %}
         <button class="btn btn-success">Нажми меня</button>
+
+        {% for el in values %}
+            {% if el != '123' %}
+                <p>{{ el|upper }}</p>
+            {% endif %}
+        {% endfor %}
+
+        {{ obj.age }}
     </div>
 {% endblock %}
